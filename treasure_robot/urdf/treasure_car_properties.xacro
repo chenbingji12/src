@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <!-- Wheels: cylinder axis is local Z before the joint pitch rotation. -->
+  <xacro:property name="wheel_length" value="0.04"/>
+  <xacro:property name="wheel_radius" value="0.05"/>
+  <xacro:property name="wheel_separation" value="0.26"/>
+  <xacro:property name="body_length" value="0.30"/>
+  <xacro:property name="body_width" value="0.20"/>
+  <xacro:property name="body_height" value="0.20"/>
+</robot>

@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<sdf version="1.10">
+  <world name="empty">
+    <physics name="1ms" type="ignored">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics"/>
+    <plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands"/>
+    <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster"/>
+    <plugin filename="gz-sim-contact-system" name="gz::sim::systems::Contact"/>
+    <plugin filename="gz-sim-imu-system" name="gz::sim::systems::Imu"/>
+    <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+    <gravity>0 0 -9.8</gravity>
+    <magnetic_field>5.5645e-06 2.28758e-05 -4.23884e-05</magnetic_field>
+    <atmosphere type="adiabatic"/>
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>true</shadows>
+    </scene>
+
+    <!-- Whole competition field exported from whole_world.blend.
+         Visual mesh includes all 61 objects; collision mesh includes only 31 solid objects. -->
+    <model name="whole_world">
+      <static>true</static>
+      <pose>0 0 0 0 0 0</pose>
+      <link name="whole_world_link">
+        <visual name="whole_world_visual">
+          <geometry>
+            <mesh>
+              <uri>package://treasure_robot/world/meshes/whole_world/whole_world_visual.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="whole_world_collision">
+          <geometry>
+            <mesh>
+              <uri>package://treasure_robot/world/meshes/whole_world/whole_world_collision.obj</uri>
+            </mesh>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+
+    <light name="sun" type="directional">
+      <pose>0 0 10 0 0 0</pose>
+      <cast_shadows>true</cast_shadows>
+      <intensity>1</intensity>
+      <direction>-0.5 0.1 -0.9</direction>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+    </light>
+  </world>
+</sdf>
